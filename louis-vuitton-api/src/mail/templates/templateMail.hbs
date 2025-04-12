@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .my-2 {
+            margin-bottom: 1rem;
+        }
+        .font-semibold {
+            font-weight: 600;
+        }
+        .font-normal {
+            font-weight: 400;
+        }
+        .overflow-x-auto {
+            overflow-x: auto;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .text-xl {
+            font-size: 1.25rem;
+        }
+        .font-bold {
+            font-weight: 700;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #6B7280;
+            color: #fff;
+            text-align: left;
+        }
+        td {
+            text-align: right;
+        }
+        .float-right {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <h1>Order #{{id}}</h1>
+    <div class="my-2">
+        <label class="font-semibold">Customer's name:</label>
+        <label>{{fullName}}</label>
+    </div>
+    <div class="my-2">
+        <label class="font-semibold">Address:</label>
+        <label>{{address}}</label>
+    </div>
+    <div class="my-2">
+        <label class="font-semibold">Phone:</label>
+        <label>{{phone}}</label>
+    </div>
+    <div class="my-2 mb-9">
+        <label class="font-normal">
+            Thanks for choosing us! Hope you had a good shopping experience. We are always honored to serve you in the future.
+        </label>
+    </div>
+    <div class="overflow-x-auto">
+        <table>
+            <thead>
+                <tr>
+                    <th style="padding: 0.75rem; border: 1px solid #ddd; background-color: #6B7280; color: #fff; text-align: left;">Product name</th>
+                    <th style="padding: 0.75rem; border: 1px solid #ddd; background-color: #6B7280; color: #fff; text-align: left;">Unit price</th>
+                    <th style="padding: 0.75rem; border: 1px solid #ddd; background-color: #6B7280; color: #fff; text-align: left;">Quantity</th>
+                    <th style="padding: 0.75rem; border: 1px solid #ddd; background-color: #6B7280; color: #fff; text-align: left;">Total</th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                {{#each product}}
+                <tr>
+                    <td style="padding: 0.75rem; border: 1px solid #ddd; text-align: right;">{{this.name}}</td>
+                    <td style="padding: 0.75rem; border: 1px solid #ddd; text-align: right;">{{this.buyPrice}}</td>
+                    <td style="padding: 0.75rem; border: 1px solid #ddd; text-align: right;">{{this.quantity}}</td>
+                    <td style="padding: 0.75rem; border: 1px solid #ddd; text-align: right;">{{this.totalRow}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    <div class="float-right my-5" style="float: right; margin-top: 1.25rem;">
+        <span class="text-xl font-bold" style="font-size: 1.25rem; font-weight: 700;">TOTAL: </span>
+        <span class="text-xl" style="font-size: 1.25rem;">{{total}}</span>
+    </div>
+</body>
+</html>
